@@ -81,8 +81,24 @@ public class BinarySearchTree<T extends Comparable<T>> implements SimpleSSet<T> 
                 root = removedNode.leftChild;
             }
         } else {
+            Node parentLeftRightMost = removedNode;
+            Node leftRightMost = removedNode.leftChild;
 
+            while (leftRightMost.rightChild != null) {
+                parentLeftRightMost = leftRightMost;
+                leftRightMost = leftRightMost.rightChild;
+            }
+
+            removedNode.value = leftRightMost.value;
+
+            if (parentLeftRightMost.rightChild == leftRightMost) {
+                parentLeftRightMost.rightChild = leftRightMost.leftChild;
+            } else {
+                parentLeftRightMost.leftChild = leftRightMost.leftChild;
+            }
         }
+
+        return removedNode.value;
     }
 
     public int height() {
@@ -147,7 +163,11 @@ public class BinarySearchTree<T extends Comparable<T>> implements SimpleSSet<T> 
         return height;
     }
 
-    private class Node {
+    public Node getRoot() {
+        return root;
+    }
+
+    public class Node {
         Node leftChild;
         Node rightChild;
         Node parent;

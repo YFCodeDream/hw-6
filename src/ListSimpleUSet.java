@@ -2,20 +2,20 @@ public class ListSimpleUSet<E> implements SimpleUSet<E> {
     private SimpleList<E> list;
 
     public ListSimpleUSet() {
-	list = new ArraySimpleList<E>();
+        list = new ArraySimpleList<E>();
     }
 
     // SimpleUSet<Integer> set = new ListSimpleUSet<Integer>(new LinkedSimpleList<Integer>())
     public ListSimpleUSet(SimpleList<E> list) {
-	this.list = list;
+        this.list = list;
     }
 
     public int size() {
-	return list.size();
+        return list.size();
     }
 
     public boolean isEmpty() {
-	return list.isEmpty();
+        return list.isEmpty();
     }
 
     /**
@@ -40,18 +40,18 @@ public class ListSimpleUSet<E> implements SimpleUSet<E> {
      */
     public boolean add(E x) {
 
-	// check if x is already in set
-	for (int i = 0; i < list.size(); i++) {
-	    
-	    if (x.equals(list.get(i))) {
-		// x already there
-		return false;
-	    }
-					
-	}
+        // check if x is already in set
+        for (int i = 0; i < list.size(); i++) {
 
-	list.add(list.size(), x);
-	return true;	
+            if (x.equals(list.get(i))) {
+                // x already there
+                return false;
+            }
+
+        }
+
+        list.add(list.size(), x);
+        return true;
     }
 
     /**
@@ -76,9 +76,7 @@ public class ListSimpleUSet<E> implements SimpleUSet<E> {
      * otherwise
      */
     public E remove(E x) {
-
-
-
+        return null;
     }
 
 
@@ -94,9 +92,7 @@ public class ListSimpleUSet<E> implements SimpleUSet<E> {
      * otherwise
      */
     public E find(E x) {
-
-
-	
+        return null;
     }
-    
+
 }
